@@ -30,7 +30,7 @@ mkdir -p %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/{install,upgrade
 
 cp $GPHOME/share/postgresql/contrib/postgis-2.1/postgis.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/install/
 cp $GPHOME/share/postgresql/contrib/postgis-2.1/rtpostgis.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/install/
-cp $GPHOME/share/postgresql/contrib/postgis-2.1/r*comments.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/install/
+cp $GPHOME/share/postgresql/contrib/postgis-2.1/*comments.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/install/
 cp $GPHOME/share/postgresql/contrib/postgis-2.1/spatial_ref_sys.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/install/
 
 cp $GPHOME/share/postgresql/contrib/postgis-2.1/*upgrade*.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/upgrade/
