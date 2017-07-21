@@ -9,7 +9,6 @@ then
 	psql -d $1 -f $GPHOME/share/postgresql/contrib/postgis-2.1/install/spatial_ref_sys.sql;
 elif [ "$2" = "upgrade" ]
 then
-	echo "Upgrade is not officially supported, use at your own risk."
 	psql -d $1 -f $GPHOME/share/postgresql/contrib/postgis-2.1/upgrade/legacy.sql;
 	psql -d $1 -f $GPHOME/share/postgresql/contrib/postgis-2.1/upgrade/postgis_upgrade_20_21.sql;
 	psql -d $1 -f $GPHOME/share/postgresql/contrib/postgis-2.1/upgrade/postgis_upgrade_21_minor.sql;
@@ -18,5 +17,5 @@ then
 	psql -d $1 -f $GPHOME/share/postgresql/contrib/postgis-2.1/uninstall/uninstall_rtpostgis.sql;
 	psql -d $1 -f $GPHOME/share/postgresql/contrib/postgis-2.1/uninstall/uninstall_postgis.sql;
 else
-	echo "Invalid option. Please try install or uninstall"
+	echo "Invalid option. Please try install, upgrade or uninstall"
 fi

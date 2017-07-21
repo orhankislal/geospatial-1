@@ -35,10 +35,11 @@ cp $GPHOME/share/postgresql/contrib/postgis-2.1/spatial_ref_sys.sql %{buildroot}
 
 cp $GPHOME/share/postgresql/contrib/postgis-2.1/*upgrade*.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/upgrade/
 cp $GPHOME/share/postgresql/contrib/postgis-2.1/legacy*.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/upgrade/
+cp $GPHOME/share/postgresql/contrib/postgis-2.1/rtpostgis_legacy.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/upgrade/
 
 cp $GPHOME/share/postgresql/contrib/postgis-2.1/uninstall*.sql %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/uninstall/
 
-cp %{postgis_dir}/postgis/package/postgis_manager.sh %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/postgis_manager.sh
+cp %{postgis_dir}/../../package/postgis_manager.sh %{buildroot}/temp/share/postgresql/contrib/postgis-2.1/postgis_manager.sh
 
 %files
 /temp/bin/pgsql2shp
