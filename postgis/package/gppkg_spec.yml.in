@@ -5,14 +5,8 @@ Version: ossv2.1.5_pv2.1_gpdb5.0
 GPDBVersion: #gpver
 Description: PostGIS provides spatial database functions for the Greenplum Database.
 PostInstall:
-- Master: "echo 'Please run the following commands to enable the PostGIS package:\
-psql -d mydatabase -f $GPHOME/share/postgresql/contrib/postgis-2.1/install/postgis.sql;\
-psql -d mydatabase -f $GPHOME/share/postgresql/contrib/postgis-2.1/install/rtpostgis.sql;\
-psql -d mydatabase -f $GPHOME/share/postgresql/contrib/postgis-2.1/install/postgis_comments.sql;\
-psql -d mydatabase -f $GPHOME/share/postgresql/contrib/postgis-2.1/install/raster_comments.sql;\
-psql -d mydatabase -f $GPHOME/share/postgresql/contrib/postgis-2.1/install/spatial_ref_sys.sql;'"
+- Master: "echo 'Please run the following commands to enable the PostGIS package:
+$GPHOME/share/postgresql/contrib/postgis-2.1/postgis_manager.sh mydatabase install'"
 PostUpdate:
-- Master: "echo 'Please run the following commands to finish the update:\
-psql -d mydatabase -f $GPHOME/share/postgresql/contrib/postgis-2.1/upgrade/legacy.sql;\
-psql -d mydatabase -f $GPHOME/share/postgresql/contrib/postgis-2.1/upgrade/postgis_upgrade_20_21.sql;\
-psql -d mydatabase -f $GPHOME/share/postgresql/contrib/postgis-2.1/upgrade/postgis_upgrade_21_minor.sql;'"
+- Master: "echo 'Please run the following commands to finish the update:
+$GPHOME/share/postgresql/contrib/postgis-2.1/postgis_manager.sh mydatabase uninstall'"
