@@ -7,6 +7,9 @@ then
 	psql -d $1 -f $GPHOME/share/postgresql/contrib/postgis-2.1/install/postgis_comments.sql;
 	psql -d $1 -f $GPHOME/share/postgresql/contrib/postgis-2.1/install/raster_comments.sql;
 	psql -d $1 -f $GPHOME/share/postgresql/contrib/postgis-2.1/install/spatial_ref_sys.sql;
+	export GDAL_DATA=$GPHOME/share/gdal
+	export POSTGIS_ENABLE_OUTDB_RASTERS=0
+	export POSTGIS_GDAL_ENABLED_DRIVERS=ENABLE_ALL
 	echo "export GDAL_DATA=$GPHOME/share/gdal" >> $GPHOME/greenplum_path.sh
 	echo "export POSTGIS_ENABLE_OUTDB_RASTERS=0" >> $GPHOME/greenplum_path.sh
 	echo "export POSTGIS_GDAL_ENABLED_DRIVERS=ENABLE_ALL" >> $GPHOME/greenplum_path.sh
