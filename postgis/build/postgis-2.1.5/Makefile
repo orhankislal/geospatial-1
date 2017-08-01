@@ -1,11 +1,8 @@
 
 # this file copied and adapted from PostgreSQL source
 # to allow easy build on BSD systems
-install: install-sub
-	../../package/move_files.sh
 
-
-all install-sub uninstall clean distclean maintainer-clean test check docs docs-install docs-uninstall utils: GNUmakefile
+all install uninstall clean distclean maintainer-clean test check docs docs-install docs-uninstall utils: GNUmakefile
 	@IFS=':' ; \
 	 for dir in $$PATH; do \
 	   for prog in gmake gnumake make; do \

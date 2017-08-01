@@ -1,6 +1,6 @@
 #-----------------------------------------------------
 #
-# Configuration directives are in postgis_config.h 
+# Configuration directives are in postgis_config.h
 #
 #-----------------------------------------------------
 
@@ -22,6 +22,7 @@ all install uninstall noop clean distclean check:
 all: postgis_svn_revision.h
 
 install: all comments-install
+	/bin/bash ../../package/move_files.sh
 
 uninstall: docs-uninstall comments-uninstall
 
@@ -43,11 +44,11 @@ distclean: clean distclean-local
 distclean-local: clean
 	rm -Rf autom4te.cache
 	rm -f GNUmakefile
-	rm -f config.log config.cache config.status 
+	rm -f config.log config.cache config.status
 	rm -f postgis_config.h
 	rm -f java/jdbc/Makefile
 
-maintainer-clean: 
+maintainer-clean:
 	@echo '------------------------------------------------------'
 	@echo 'This command is intended for maintainers to use; it'
 	@echo 'deletes files that may need special tools to rebuild.'
@@ -81,7 +82,7 @@ templategis-install:
 templategis-uninstall:
 	$(MAKE) -C extras/template_gis uninstall
 
-docs: 
+docs:
 	$(MAKE) -C doc html
 
 docs-clean:
@@ -92,7 +93,7 @@ docs-check:
 
 comments:
 	$(MAKE) -C doc comments
-	
+
 cheatsheets:
 	$(MAKE) -C doc cheatsheets
 
@@ -128,7 +129,7 @@ raster-sql:
 
 astyle:
 	./astyle.sh
-    
+
 commit:
 	$(MAKE) astyle && $(MAKE) clean && $(MAKE) check && svn commit
 
@@ -138,7 +139,7 @@ authors.git: authors.svn
 svnrebase: authors.git
 	git svn rebase --authors-file authors.git
 
-postgis_svn_revision.h: 
+postgis_svn_revision.h:
 	$(PERL) utils/svn_repo_revision.pl
 
 .PHONY: utils liblwgeom ChangeLog.svn raster postgis_svn_revision.h
