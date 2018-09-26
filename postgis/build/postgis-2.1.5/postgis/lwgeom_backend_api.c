@@ -102,10 +102,10 @@ void lwgeom_init_backend()
 				"Sets the PostGIS Geometry Backend.", /* short_desc */
 				"Sets the PostGIS Geometry Backend (allowed values are 'geos' or 'sfcgal')", /* long_desc */
 				&lwgeom_backend_name, /* valueAddr */
-				NULL,
+				(char *)lwgeom_backends[0].name,
 				PGC_USERSET, /* GucContext context */
-				GUC_LIST_INPUT,
-				NULL,
+				0, /* int flags */
+				NULL, /* GucStringCheckHook check_hook */
 				(GucStringAssignHook)lwgeom_backend_switch, /* GucStringAssignHook assign_hook */
 				NULL  /* GucShowHook show_hook */
 				);
